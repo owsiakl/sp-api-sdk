@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * GetReportsResponse.
+ * ReportScheduleList.
  *
  * PHP version 7.4
  *
@@ -40,7 +40,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetReportsResponse implements \ArrayAccess, \JsonSerializable, ModelInterface
+class ReportScheduleList implements \ArrayAccess, \JsonSerializable, ModelInterface
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetReportsResponse implements \ArrayAccess, \JsonSerializable, ModelInterf
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'GetReportsResponse';
+    protected static string $openAPIModelName = 'ReportScheduleList';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -57,8 +57,7 @@ class GetReportsResponse implements \ArrayAccess, \JsonSerializable, ModelInterf
      * @var string[]
      */
     protected static array $openAPITypes = [
-        'reports' => '\AmazonPHP\SellingPartner\Model\Reports\Report[]',
-        'next_token' => 'string',
+        'report_schedules' => '\AmazonPHP\SellingPartner\Model\Reports\ReportSchedule[]',
     ];
 
     /**
@@ -69,8 +68,7 @@ class GetReportsResponse implements \ArrayAccess, \JsonSerializable, ModelInterf
      * @psalm-var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'reports' => null,
-        'next_token' => null,
+        'report_schedules' => null,
     ];
 
     /**
@@ -80,8 +78,7 @@ class GetReportsResponse implements \ArrayAccess, \JsonSerializable, ModelInterf
      * @var string[]
      */
     protected static array $attributeMap = [
-        'reports' => 'reports',
-        'next_token' => 'nextToken',
+        'report_schedules' => 'reportSchedules',
     ];
 
     /**
@@ -90,8 +87,7 @@ class GetReportsResponse implements \ArrayAccess, \JsonSerializable, ModelInterf
      * @var string[]
      */
     protected static array $setters = [
-        'reports' => 'setReports',
-        'next_token' => 'setNextToken',
+        'report_schedules' => 'setReportSchedules',
     ];
 
     /**
@@ -100,8 +96,7 @@ class GetReportsResponse implements \ArrayAccess, \JsonSerializable, ModelInterf
      * @var string[]
      */
     protected static array $getters = [
-        'reports' => 'getReports',
-        'next_token' => 'getNextToken',
+        'report_schedules' => 'getReportSchedules',
     ];
 
     /**
@@ -119,8 +114,7 @@ class GetReportsResponse implements \ArrayAccess, \JsonSerializable, ModelInterf
      */
     public function __construct(array $data = null)
     {
-        $this->container['reports'] = $data['reports'] ?? null;
-        $this->container['next_token'] = $data['next_token'] ?? null;
+        $this->container['report_schedules'] = $data['report_schedules'] ?? null;
     }
 
     /**
@@ -202,8 +196,8 @@ class GetReportsResponse implements \ArrayAccess, \JsonSerializable, ModelInterf
     {
         $invalidProperties = [];
 
-        if ($this->container['reports'] === null) {
-            $invalidProperties[] = "'reports' can't be null";
+        if ($this->container['report_schedules'] === null) {
+            $invalidProperties[] = "'report_schedules' can't be null";
         }
 
         return $invalidProperties;
@@ -221,43 +215,23 @@ class GetReportsResponse implements \ArrayAccess, \JsonSerializable, ModelInterf
     }
 
     /**
-     * Gets reports.
+     * Gets report_schedules.
      *
-     * @return \AmazonPHP\SellingPartner\Model\Reports\Report[]
+     * @return \AmazonPHP\SellingPartner\Model\Reports\ReportSchedule[]
      */
-    public function getReports() : array
+    public function getReportSchedules() : array
     {
-        return $this->container['reports'];
+        return $this->container['report_schedules'];
     }
 
     /**
-     * Sets reports.
+     * Sets report_schedules.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Reports\Report[] $reports a list of reports
+     * @param \AmazonPHP\SellingPartner\Model\Reports\ReportSchedule[] $report_schedules report_schedules
      */
-    public function setReports(array $reports) : self
+    public function setReportSchedules(array $report_schedules) : self
     {
-        $this->container['reports'] = $reports;
-
-        return $this;
-    }
-
-    /**
-     * Gets next_token.
-     */
-    public function getNextToken() : ?string
-    {
-        return $this->container['next_token'];
-    }
-
-    /**
-     * Sets next_token.
-     *
-     * @param null|string $next_token Returned when the number of results exceeds pageSize. To get the next page of results, call getReports with this token as the only parameter.
-     */
-    public function setNextToken(?string $next_token) : self
-    {
-        $this->container['next_token'] = $next_token;
+        $this->container['report_schedules'] = $report_schedules;
 
         return $this;
     }
